@@ -7,29 +7,49 @@
   <meta name="description" content="Enjoy an all-in-one breakfast buffet at Villa Adora in Bled. Fresh pastries, eggs, fruit, coffee and local flavours. Open to hotel guests and outside visitors.">
   <meta name="keywords" content="breakfast Bled, breakfast in Bled, buffet breakfast Bled, breakfast Lake Bled, Villa Adora breakfast">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://isakzvegelj.github.io/adora-breakfast/">
+  <link rel="canonical" href="https://adorabreakfast.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Breakfast in Bled | Villa Adora">
   <meta property="og:description" content="A generous buffet in one of Bled's most beautiful villas. Open every morning to hotel guests and outside visitors.">
-  <meta property="og:image" content="https://isakzvegelj.github.io/adora-breakfast/images/breakfast.jpg">
-  <meta property="og:url" content="https://isakzvegelj.github.io/adora-breakfast/">
+  <meta property="og:image" content="https://adorabreakfast.com/images/breakfast.jpg">
+  <meta property="og:url" content="https://adorabreakfast.com/">
+  <meta property="og:image:alt" content="Buffet breakfast at Villa Adora in Bled">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Breakfast in Bled | Villa Adora">
+  <meta name="twitter:description" content="A generous daily breakfast buffet at Villa Adora, close to Lake Bled. Open to hotel guests and outside visitors.">
+  <meta name="twitter:image" content="https://adorabreakfast.com/images/breakfast.jpg">
+  <meta name="twitter:image:alt" content="Buffet breakfast at Villa Adora in Bled">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="seo.css">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FoodEstablishment",
     "name":"Villa Adora Breakfast",
     "description":"All-in-one breakfast buffet in Bled, open to hotel guests and outside visitors.",
-    "url":"https://isakzvegelj.github.io/adora-breakfast/",
-    "image":"https://isakzvegelj.github.io/adora-breakfast/images/breakfast.jpg",
+    "url":"https://adorabreakfast.com/",
+    "image":"https://adorabreakfast.com/images/breakfast.jpg",
     "telephone":"+386 51 603 858",
-    "email":"evita.vilebled@gmail.com",
+    "email":"info@adorabreakfast.com",
     "address":{"@type":"PostalAddress","streetAddress":"Cesta svobode 35","addressLocality":"Bled","postalCode":"4260","addressCountry":"SI"},
-    "openingHours":"Mo-Su 07:30-10:30"
+    "openingHours":"Mo-Su 07:30-10:30",
+    "areaServed":{"@type":"City","name":"Bled"},
+    "hasMap":"https://www.google.com/maps/dir/?api=1&destination=Cesta%20svobode%2035%2C%204260%20Bled%2C%20Slovenia"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Is breakfast at Villa Adora open to outside visitors?","acceptedAnswer":{"@type":"Answer","text":"Yes. Breakfast at Villa Adora in Bled is open to hotel guests and outside visitors."}},
+      {"@type":"Question","name":"What time is breakfast served at Villa Adora?","acceptedAnswer":{"@type":"Answer","text":"Breakfast is served every day from 7:30 to 10:30."}},
+      {"@type":"Question","name":"Where is Villa Adora breakfast in Bled?","acceptedAnswer":{"@type":"Answer","text":"Villa Adora is at Cesta svobode 35, 4260 Bled, Slovenia, a short walk from Lake Bled."}},
+      {"@type":"Question","name":"Should I reserve a breakfast table in advance?","acceptedAnswer":{"@type":"Answer","text":"Reservations are recommended for weekends and holidays. You can request a table using the form on this page."}}
+    ]
   }
   </script>
 </head>
@@ -49,7 +69,7 @@
 
     <section class="intro">
       <p class="kicker dark">Good mornings, simply done</p>
-      <h2>Come hungry.<br><em>Leave happy.</em></h2>
+        <h2>Breakfast in Bled.<br><em>Made beautifully.</em></h2>
       <p class="copy">Choose what you like, come back for more, and take your time. Our all-in-one breakfast buffet brings together fresh ingredients, warm favourites and the quiet feeling of a morning by Lake Bled.</p>
     </section>
 
@@ -64,8 +84,19 @@
     </section>
 
     <section id="reserve" class="reserve">
-      <div class="reserve-copy"><p class="kicker">Save your table</p><h2>Make breakfast<br><em>part of your Bled day.</em></h2><p>Reserve ahead for weekends and holidays. We will confirm your table by email.</p><div class="contact"><span>◷ &nbsp;Daily · 7:30–10:30</span><span>✉ &nbsp;evita.vilebled@gmail.com</span></div></div>
+      <div class="reserve-copy"><p class="kicker">Save your table</p><h2>Make breakfast<br><em>part of your Bled day.</em></h2><p>Reserve ahead for weekends and holidays. We will confirm your table by email.</p><div class="contact"><span>◷ &nbsp;Daily · 7:30–10:30</span><span>✉ &nbsp;info@adorabreakfast.com</span></div></div>
       <form id="breakfast-form" class="form"><label>Name<input name="name" required placeholder="Your name"></label><label>Date<input name="date" type="date" required></label><label>Guests<select name="guests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label><label>Notes<input name="notes" placeholder="Allergies or requests"></label><button type="submit">Request a table <span>→</span></button><small>This opens your email app with the details filled in.</small><p id="form-status" class="status" role="status"></p></form>
+    </section>
+
+    <section id="faq" class="faq">
+      <p class="kicker dark">Questions, answered</p>
+      <h2>Breakfast in Bled,<br><em>made easy.</em></h2>
+      <div class="faq-list">
+        <details><summary>Is breakfast open to outside visitors?</summary><p>Yes. Breakfast at Villa Adora is open to hotel guests and outside visitors.</p></details>
+        <details><summary>What time is breakfast served?</summary><p>Breakfast is served every day from 7:30 to 10:30.</p></details>
+        <details><summary>Where is Villa Adora breakfast?</summary><p>We are at Cesta svobode 35 in Bled, a short walk from Lake Bled.</p></details>
+        <details><summary>Should I reserve a table?</summary><p>Reservations are recommended for weekends and holidays. Use the reservation form above and we will confirm by email.</p></details>
+      </div>
     </section>
 
     <section id="location" class="location">
@@ -92,11 +123,11 @@
       const data = new FormData(event.currentTarget);
       const subject = encodeURIComponent('Breakfast reservation — ' + (data.get('date') || ''));
       const body = encodeURIComponent(['Name: ' + data.get('name'), 'Date: ' + data.get('date'), 'Guests: ' + data.get('guests'), 'Notes: ' + (data.get('notes') || '')].join('\n'));
-      window.location.href = 'mailto:evita.vilebled@gmail.com?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:info@adorabreakfast.com?subject=' + subject + '&body=' + body;
       document.getElementById('form-status').textContent = 'Your email draft is ready.';
     });
   </script>
 </body>
 </html>
 <!-- Standalone Villa Adora breakfast site. -->
-<!-- Deployment note: when DNS is ready, use breakfast.adorabled.com as the custom GitHub Pages domain. -->
+<!-- Deployment: https://adorabreakfast.com/ -->
