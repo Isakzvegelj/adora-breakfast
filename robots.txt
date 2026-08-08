@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://breakfast.adorabled.com/sitemap.xml
+Sitemap: https://isakzvegelj.github.io/adora-breakfast/sitemap.xml
