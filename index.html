@@ -68,6 +68,7 @@
       <form id="breakfast-form" class="form"><label>Name<input name="name" required placeholder="Your name"></label><label>Date<input name="date" type="date" required></label><label>Guests<select name="guests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label><label>Notes<input name="notes" placeholder="Allergies or requests"></label><button type="submit">Request a table <span>→</span></button><small>This opens your email app with the details filled in.</small><p id="form-status" class="status" role="status"></p></form>
     </section>
   </main>
+  <a class="floating-reserve" href="#reserve">Reserve a table <span>→</span></a>
   <footer><span>ADORA</span><a href="https://adorabled.com/">Return to Adora</a><a href="tel:+38651603858">+386 51 603 858</a></footer>
   <script>
     document.getElementById('breakfast-form').addEventListener('submit', function (event) {
