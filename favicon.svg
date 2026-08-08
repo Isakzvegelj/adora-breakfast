@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Adora Breakfast</title>
+  <rect width="64" height="64" rx="16" fill="#1f3735"/>
+  <circle cx="32" cy="27" r="13" fill="#e9c27b"/>
+  <path d="M12 28h40M17 20l-3-4M24 16l-1-5M40 16l1-5M47 20l3-4" fill="none" stroke="#f7f4ee" stroke-linecap="round" stroke-width="2.5"/>
+  <path d="M18 37h28v5.5A7.5 7.5 0 0 1 38.5 50h-13a7.5 7.5 0 0 1-7.5-7.5V37Z" fill="#f7f4ee"/>
+  <path d="M46 39h2.5a5.5 5.5 0 0 1 0 11H44" fill="none" stroke="#f7f4ee" stroke-linecap="round" stroke-width="3"/>
+  <path d="M25 43h14" stroke="#b67e38" stroke-linecap="round" stroke-width="2"/>
+</svg>
