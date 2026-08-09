@@ -24,6 +24,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+      const savedTheme = localStorage.getItem('adora-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="seo.css">
   <script type="application/ld+json">
@@ -165,6 +172,9 @@
     </section>
   </main>
   <a class="floating-reserve" href="#reserve">Reserve a table <span>→</span></a>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+    <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+  </button>
   <footer><span>ADORA</span><a href="https://adorabled.com/">Return to Adora</a><a href="tel:+38651603858">+386 51 603 858</a><a href="https://isakzvegelj.com/" target="_blank" rel="noopener" aria-label="Website by IZ">IZ</a></footer>
   <script>
     const slovenian = {
@@ -241,6 +251,21 @@
       window.location.href = 'mailto:info@adorabreakfast.com?subject=' + subject + '&body=' + body;
       document.getElementById('form-status').textContent = isSlovenian ? slovenian.status : 'Your email draft is ready.';
     });
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
+    function updateThemeToggle() {
+      const isDark = document.documentElement.dataset.theme === 'dark';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeIcon.textContent = isDark ? '☀' : '☾';
+    }
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem('adora-theme', nextTheme);
+      updateThemeToggle();
+    });
+    updateThemeToggle();
     if (new URLSearchParams(window.location.search).get('lang') === 'sl') applySlovenian();
   </script>
 </body>
