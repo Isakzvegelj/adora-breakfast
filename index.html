@@ -190,11 +190,11 @@
       document.querySelector('meta[property="og:description"]').content = t.description;
       const set = (selector, value, html = false) => { const el = document.querySelector(selector); if (el) html ? el.innerHTML = value : el.textContent = value; };
       const setAll = (selector, values, html = false) => document.querySelectorAll(selector).forEach((el, i) => { if (values[i] !== undefined) html ? el.innerHTML = values[i] : el.textContent = values[i]; });
-      set('.hero .kicker', t.heroKicker); set('.hero h1', t.heroTitle, true); set('.hero .lead', t.heroLead); set('.hero .button.gold', t.reserve, true); set('.hero .button.ghost', t.included); setAll('.meta span', t.meta);
+      set('.hero .kicker', t.heroKicker); set('.hero h1', t.heroTitle, true); set('.hero .lead', t.heroLead); set('.hero .button.gold', t.reserve, true); set('.hero .button.ghost', t.included); setAll('.meta span', t.meta, true);
       set('.intro .kicker', t.introKicker); set('.intro h2', t.introTitle, true); set('.intro .copy', t.introCopy);
       set('.views-heading .kicker', t.viewsKicker); set('.views-heading h2', t.viewsTitle, true); set('.views-heading .copy', t.viewsCopy); setAll('.view-card h3', t.viewTitles); setAll('.view-card p', t.viewCopies);
       set('.menu-heading .kicker', t.menuKicker); set('.menu-heading h2', t.menuTitle, true); setAll('.menu-card h3', t.menuTitles); setAll('.menu-card p', t.menuCopies);
-      set('.reserve-copy .kicker', t.reserveKicker); set('.reserve-copy h2', t.reserveTitle, true); set('.reserve-copy > p:not(.kicker)', t.reserveCopy); setAll('.contact span', t.contact);
+      set('.reserve-copy .kicker', t.reserveKicker); set('.reserve-copy h2', t.reserveTitle, true); set('.reserve-copy > p:not(.kicker)', t.reserveCopy); setAll('.contact span', t.contact, true);
       document.querySelectorAll('.form label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
       document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button', t.formButton, true); set('.form small', t.formNote);
       set('.faq > .kicker', t.faqKicker); set('.faq > h2', t.faqTitle, true); setAll('.faq-list summary', t.faqQuestions); setAll('.faq-list details p', t.faqAnswers);
