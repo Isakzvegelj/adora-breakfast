@@ -25,12 +25,15 @@
   <meta name="twitter:description" content="A daily breakfast buffet beside Lake Bled, with views of Bled Island. Open to hotel guests and outside visitors.">
   <meta name="twitter:image" content="https://adorabreakfast.com/images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(2).jpeg">
   <meta name="twitter:image:alt" content="Buffet breakfast at Villa Adora in Bled">
+  <meta name="theme-color" content="#213b38">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <script>
     (() => {
-      const savedTheme = localStorage.getItem('adora-theme');
+      document.documentElement.classList.add('js');
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem('adora-theme'); } catch (e) {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
     })();
@@ -73,12 +76,13 @@
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bf2d915e4e3f4fcb801c7984b6488c69"}'></script>
 </head>
 <body>
-  <main>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <main id="main-content">
     <section class="hero">
       <img src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(2).jpeg" alt="Breakfast buffet at Villa Adora in Bled" width="1211" height="1600" fetchpriority="high" decoding="async">
       <div class="hero-shade"></div>
       <div class="hero-content">
-        <nav class="language-switch" aria-label="Language"><a href="/?lang=en" data-language="en" class="active">EN</a><a href="/?lang=sl" data-language="sl">SL</a></nav>
+        <nav class="language-switch" aria-label="Language"><a href="/?lang=en" data-language="en" class="active" aria-current="page">EN</a><a href="/?lang=sl" data-language="sl">SL</a></nav>
         <p class="kicker">Villa Adora · Bled</p>
         <h1>Breakfast<br><em>with view.</em></h1>
         <p class="lead">A generous breakfast buffet directly beside Lake Bled, with beautiful views of the lake and Bled Island. Open every morning to hotel guests and outside visitors.</p>
@@ -145,7 +149,7 @@
 
     <section id="reserve" class="reserve">
       <div class="reserve-copy"><p class="kicker">Save your table</p><h2>Make breakfast<br><em>part of your Bled day.</em></h2><p>Enjoy the full breakfast buffet for €35 per person. Tell us where you would like to sit and we will do our best to prepare your preferred setting.</p><div class="contact"><span>◷ &nbsp;Daily · 7:30–10:30</span><span>✉ &nbsp;info@adorabreakfast.com</span></div></div>
-      <form id="breakfast-form" class="form"><label>Name<input name="name" required placeholder="Your name"></label><label>Date<input name="date" type="date" required></label><label>Guests<select name="guests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label><label>Preferred seating<select name="seating"><option>Large terrace</option><option>Island view, in front of the pavilion</option><option>Inside the pavilion</option><option>Sundeck above the pavilion</option><option>Inside, depending on weather</option></select></label><label class="full-width">Notes<input name="notes" placeholder="Allergies or requests"></label><button type="submit">Request a table <span>→</span></button><small>This opens your email app with the details filled in.</small><p id="form-status" class="status" role="status"></p></form>
+      <form id="breakfast-form" class="form"><label>Name<input name="name" autocomplete="name" required placeholder="Your name"></label><label>Date<input name="date" type="date" required></label><label>Guests<select name="guests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label><label>Preferred seating<select name="seating"><option>Large terrace</option><option>Island view, in front of the pavilion</option><option>Inside the pavilion</option><option>Sundeck above the pavilion</option><option>Inside, depending on weather</option></select></label><label class="full-width">Notes<textarea name="notes" rows="3" placeholder="Allergies or requests"></textarea></label><button type="submit">Request a table <span>→</span></button><small>This opens your email app with the details filled in.</small><p id="form-status" class="status" role="status"></p></form>
     </section>
 
     <section id="faq" class="faq">
@@ -242,10 +246,10 @@
       set('.menu-heading .kicker', t.menuKicker); set('.menu-heading h2', t.menuTitle, true); setAll('.menu-card h3', t.menuTitles); setAll('.menu-card p', t.menuCopies);
       set('.reserve-copy .kicker', t.reserveKicker); set('.reserve-copy h2', t.reserveTitle, true); set('.reserve-copy > p:not(.kicker)', t.reserveCopy); setAll('.contact span', t.contact, true);
       document.querySelectorAll('.form label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
-      document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button', t.formButton, true); set('.form small', t.formNote);
+      document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form [name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button', t.formButton, true); set('.form small', t.formNote);
       set('.faq > .kicker', t.faqKicker); set('.faq > h2', t.faqTitle, true); setAll('.faq-list summary', t.faqQuestions); setAll('.faq-list details p', t.faqAnswers);
       set('.location-heading .kicker', t.locationKicker); set('.location-heading h2', t.locationTitle, true); set('.location-heading .copy', t.locationCopy); set('.directions', t.directions, true); set('.floating-reserve', t.floating, true); set('footer a[href="https://adorabled.com/"]', t.returnLink); document.querySelector('.map-wrap iframe').title = 'Zemljevid lokacije Vile Adore na Bledu'; document.querySelector('.map-wrap iframe').ariaLabel = 'Zemljevid lokacije Vile Adore na naslovu Cesta svobode 35, Bled';
-      document.querySelector('[data-language="sl"]').classList.add('active'); document.querySelector('[data-language="en"]').classList.remove('active');
+      document.querySelector('[data-language="sl"]').classList.add('active'); document.querySelector('[data-language="sl"]').setAttribute('aria-current', 'page'); document.querySelector('[data-language="en"]').classList.remove('active'); document.querySelector('[data-language="en"]').removeAttribute('aria-current');
     }
 
     document.getElementById('breakfast-form').addEventListener('submit', function (event) {
@@ -268,7 +272,7 @@
     themeToggle.addEventListener('click', () => {
       const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = nextTheme;
-      localStorage.setItem('adora-theme', nextTheme);
+      try { localStorage.setItem('adora-theme', nextTheme); } catch (e) {}
       updateThemeToggle();
     });
     updateThemeToggle();
