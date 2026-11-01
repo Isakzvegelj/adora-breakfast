@@ -13,3 +13,6 @@ html[data-theme="dark"] #music-toggle{color:#e3ebe2;border-color:#9caf9f}html[da
 @media(max-width:1024px) and (min-width:769px){.music-control{left:28px}}
 @media(max-width:768px){.villa-photos{grid-template-columns:minmax(0,1fr);gap:28px}.music-control{left:24px;top:20px}.breakfast-gallery-grid{grid-template-rows:420px}}
 @media(max-width:520px){.breakfast-gallery-grid{display:flex;flex-direction:column}.breakfast-gallery-grid>.breakfast-photo{height:440px}}
+
+/* Keep the requested stop control reachable while audio is active. */
+.music-control.music-on{position:fixed;top:auto;left:16px;bottom:76px;z-index:30;max-width:calc(100vw - 32px)}

@@ -1,4 +1,4 @@
-/* One optional, pre-rendered loop. No audio context or track request before Play. */
+/* Attempt music on entry; browser autoplay rules remain authoritative. */
 (() => {
   const button = document.querySelector('#music-toggle');
   const AudioEngine = window.AudioContext || window.webkitAudioContext;
@@ -7,47 +7,86 @@
   const status = document.querySelector('#music-status');
   const sl = document.documentElement.lang === 'sl';
   const words = sl ? {
-    off: 'Predvajaj', playing: 'Premor', loading: 'Prekliči', error: 'Poskusi znova',
-    playLabel: 'Predvajaj sproščujočo glasbo', pauseLabel: 'Začasno ustavi glasbo',
-    cancelLabel: 'Prekliči nalaganje glasbe', errorMessage: 'Glasbe ni mogoče naložiti. Poskusite znova.'
+    off: 'Predvajaj', playing: 'Ustavi', loading: 'Ustavi', error: 'Poskusi znova',
+    playLabel: 'Predvajaj sproščujočo glasbo', stopLabel: 'Ustavi glasbo',
+    errorMessage: 'Glasbe ni mogoče naložiti. Poskusite znova.'
   } : {
-    off: 'Play music', playing: 'Pause music', loading: 'Cancel', error: 'Try music',
-    playLabel: 'Play lounge music', pauseLabel: 'Pause lounge music',
-    cancelLabel: 'Cancel music loading', errorMessage: 'Music could not load. Try again.'
+    off: 'Play music', playing: 'Stop music', loading: 'Stop music', error: 'Try music',
+    playLabel: 'Play lounge music', stopLabel: 'Stop lounge music',
+    errorMessage: 'Music could not load. Try again.'
   };
-  let context = null, source = null, buffer = null, controller = null;
-  let playing = false, loading = false, generation = 0;
+  let context = null, source = null, volume = null, buffer = null, controller = null;
+  let playing = false, loading = false, generation = 0, visitorStopped = false;
+  let removeGesture = () => {}, awaitingFirstView = document.hidden, gestureAttempted = false;
   const paint = state => {
     button.dataset.state = state;
-    button.setAttribute('aria-pressed', String(state === 'playing'));
+    const on = state === 'playing' || state === 'loading';
+    button.closest('.music-control')?.classList.toggle('music-on', on);
+    button.setAttribute('aria-pressed', String(on));
     button.setAttribute('aria-busy', String(state === 'loading'));
-    button.setAttribute('aria-label', state === 'playing' ? words.pauseLabel : state === 'loading' ? words.cancelLabel : words.playLabel);
-    label.textContent = words[state === 'paused' ? 'off' : state];
+    button.setAttribute('aria-label', on ? words.stopLabel : words.playLabel);
+    label.textContent = words[['blocked', 'stopped'].includes(state) ? 'off' : state];
     status.textContent = state === 'error' ? words.errorMessage : '';
   };
-  const pause = async () => {
-    generation++; controller?.abort(); controller = null;
-    loading = false; playing = false; paint('paused');
-    try { if (context && context.state !== 'closed') await context.suspend(); } catch { /* Keep the control usable after an interruption. */ }
+  const stop = async (manual = true) => {
+    if (manual) visitorStopped = true;
+    generation++; removeGesture(); controller?.abort(); controller = null;
+    const wasLoading = loading;
+    loading = false; playing = false; paint('stopped');
+    try { source?.stop(); } catch { /* An already-stopped source has no work left. */ }
+    source?.disconnect(); source = null; volume?.disconnect(); volume = null;
+    const current = context;
+    try {
+      if (current && current.state !== 'closed') {
+        // Close an unresolved autoplay attempt so a later click cannot wake it.
+        if (wasLoading) { context = null; await current.close(); }
+        else await current.suspend();
+      }
+    } catch { /* Keep Stop effective after native audio interruptions. */ }
   };
-  button.hidden = false; paint('off');
-  button.addEventListener('click', async () => {
-    if (playing || loading) { await pause(); return; }
+  const armFirstInteraction = () => {
+    removeGesture();
+    if (visitorStopped || document.hidden || gestureAttempted) return;
+    const first = event => {
+      if (!event.isTrusted || visitorStopped || document.hidden) return;
+      if (event.target instanceof Element && event.target.closest('#music-toggle')) return;
+      if (event.type === 'keydown' && ['Shift', 'Control', 'Alt', 'Meta', 'Escape'].includes(event.key)) return;
+      removeGesture(); gestureAttempted = true; void start(true);
+    };
+    document.addEventListener('click', first, { passive: true });
+    document.addEventListener('keydown', first, { passive: true });
+    removeGesture = () => {
+      document.removeEventListener('click', first);
+      document.removeEventListener('keydown', first);
+      removeGesture = () => {};
+    };
+  };
+  const start = async (automatic = false) => {
+    if (playing || loading || document.hidden || (automatic && visitorStopped)) return;
+    removeGesture();
     const own = ++generation; loading = true; paint('loading');
     try {
       if (!context || context.state === 'closed') {
         context = new AudioEngine();
         const current = context;
         current.onstatechange = () => {
-          if (context === current && playing && current.state !== 'running') {
-            playing = false; paint('paused');
-          }
+          if (context === current && playing && current.state !== 'running') void stop(false);
         };
       }
       const current = context;
-      // Resume immediately in the visitor's click, before network/decode work.
-      await current.resume();
+      // Blocked Web Audio resume promises may stay pending rather than reject.
+      let timer;
+      const ready = await Promise.race([
+        current.resume().then(() => current.state === 'running'),
+        new Promise(resolve => { timer = setTimeout(() => resolve(false), automatic ? 300 : 1500); })
+      ]).finally(() => clearTimeout(timer));
       if (own !== generation) return;
+      if (!ready) {
+        context = null; await current.close();
+        if (own !== generation) return;
+        if (automatic) { loading = false; paint('blocked'); armFirstInteraction(); return; }
+        throw new Error('Playback needs visitor input');
+      }
       if (!buffer) {
         controller = new AbortController();
         const response = await fetch('audio/lounge-v1.json', { signal: controller.signal });
@@ -60,25 +99,44 @@
         if (decoded.duration > 30 || decoded.numberOfChannels !== 1) throw new Error('Invalid decoded track');
         buffer = decoded; controller = null;
       }
-      if (own !== generation || document.hidden) { await pause(); return; }
-      if (!source) {
-        const volume = current.createGain(); volume.gain.value = 0.6;
-        source = current.createBufferSource(); source.buffer = buffer; source.loop = true; source.loopEnd = Math.min(24, buffer.duration);
-        source.connect(volume); volume.connect(current.destination); source.start();
-      }
+      if (own !== generation || document.hidden) { await stop(false); return; }
+      volume = current.createGain(); volume.gain.value = 0.6;
+      source = current.createBufferSource(); source.buffer = buffer;
+      source.loop = true; source.loopEnd = Math.min(24, buffer.duration);
+      source.connect(volume); volume.connect(current.destination); source.start();
       if (current.state !== 'running') throw new Error('Audio interrupted');
       loading = false; playing = true; paint('playing');
-    } catch {
+    } catch (error) {
       if (own !== generation) return;
-      loading = false; playing = false; paint('error');
-      try { if (context && context.state !== 'closed') await context.suspend(); } catch { /* Native audio may already be closed. */ }
+      loading = false; playing = false;
+      try { source?.stop(); } catch {}
+      source?.disconnect(); volume?.disconnect(); source = null; volume = null;
+      if (automatic && error?.name === 'NotAllowedError') {
+        const current = context; context = null;
+        try { if (current && current.state !== 'closed') await current.close(); } catch {}
+        if (own !== generation) return;
+        paint('blocked'); armFirstInteraction(); return;
+      }
+      paint('error');
+      try { if (context && context.state !== 'closed') await context.suspend(); } catch {}
     }
+  };
+  button.hidden = false; paint('off');
+  button.addEventListener('click', () => {
+    if (playing || loading) void stop(true);
+    else { visitorStopped = false; void start(false); }
   });
-  document.addEventListener('visibilitychange', () => { if (document.hidden && (playing || loading)) void pause(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { removeGesture(); if (playing || loading) void stop(false); }
+    else if (awaitingFirstView) { awaitingFirstView = false; void start(true); }
+  });
   window.addEventListener('pagehide', () => {
-    generation++; controller?.abort(); controller = null; playing = false; loading = false;
-    try { source?.stop(); } catch { /* A stopped source needs no further work. */ }
+    awaitingFirstView = false; generation++; removeGesture(); controller?.abort(); controller = null;
+    playing = false; loading = false;
+    try { source?.stop(); } catch {}
+    source?.disconnect(); volume?.disconnect();
     if (context && context.state !== 'closed') void context.close().catch(() => {});
-    context = null; source = null; buffer = null; paint('off');
+    context = null; source = null; volume = null; buffer = null; paint('off');
   });
+  if (!awaitingFirstView) void start(true);
 })();
