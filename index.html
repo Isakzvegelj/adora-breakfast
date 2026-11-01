@@ -130,6 +130,7 @@
 </script>
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bf2d915e4e3f4fcb801c7984b6488c69"}'></script>
+  <link rel="stylesheet" href="conversion.css">
 </head>
 <body>
   <main>
@@ -141,9 +142,14 @@
         <p class="kicker">Villa Adora · Bled</p>
         <h1>Breakfast in Bled<br><em>with a lake view.</em></h1>
         <p class="lead">A generous breakfast buffet directly beside Lake Bled, with beautiful views of the lake and Bled Island. Open every morning to hotel guests and outside visitors.</p>
-        <div class="actions"><a href="#reserve" class="button gold">Reserve a table <span>→</span></a><a href="#included" class="button ghost">What's included</a></div>
+        <div class="actions"><a href="#reserve" class="button gold">Request a table <span>→</span></a><a href="tel:+38651603858" class="button ghost">Call us</a></div>
         <div class="meta"><span>◷ &nbsp;Every day · 7:30–10:30</span><span>€ &nbsp;€35 per person</span><span>⌖ &nbsp;Directly beside Lake Bled</span></div>
       </div>
+    </section>
+
+    <section id="reserve" class="reserve">
+      <div class="reserve-copy"><p class="kicker">Plan your breakfast</p><h2>Make breakfast<br><em>part of your Bled day.</em></h2><p>Enjoy the full breakfast buffet for €35 per person. Hotel guests and outside visitors are welcome. Choose your date and party size, then email your request or call us. Your table is reserved once we confirm availability.</p><div class="contact"><span>◷ &nbsp;Daily · 7:30–10:30</span><a href="mailto:info@adorabreakfast.com">Email: info@adorabreakfast.com</a><a href="tel:+38651603858">Call: +386 51 603 858</a></div></div>
+      <form id="breakfast-form" class="form"><label>Name<input name="name" autocomplete="name" required placeholder="Your name"></label><label>Date<input name="date" type="date" required></label><label>Guests<select name="guests"><option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option><option value="7">7 guests</option><option value="8">8 guests</option></select></label><label>Preferred seating<select name="seating"><option>Large terrace</option><option>Island view, in front of the pavilion</option><option>Inside the pavilion</option><option>Sundeck above the pavilion</option><option>Inside, depending on weather</option></select></label><label class="full-width">Notes<input name="notes" placeholder="Allergies or requests"></label><button type="submit">Request a table <span>→</span></button><small>This opens an email draft. Send it to request your table; your reservation is confirmed only after our reply.</small><p id="form-status" class="status" role="status"></p></form>
     </section>
 
     <section class="intro">
@@ -203,10 +209,7 @@
       </div>
     </section>
 
-    <section id="reserve" class="reserve">
-      <div class="reserve-copy"><p class="kicker">Save your table</p><h2>Make breakfast<br><em>part of your Bled day.</em></h2><p>Enjoy the full breakfast buffet for €35 per person. Tell us where you would like to sit and we will do our best to prepare your preferred setting.</p><div class="contact"><span>◷ &nbsp;Daily · 7:30–10:30</span><span>✉ &nbsp;info@adorabreakfast.com</span></div></div>
-      <form id="breakfast-form" class="form"><label>Name<input name="name" required placeholder="Your name"></label><label>Date<input name="date" type="date" required></label><label>Guests<select name="guests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label><label>Preferred seating<select name="seating"><option>Large terrace</option><option>Island view, in front of the pavilion</option><option>Inside the pavilion</option><option>Sundeck above the pavilion</option><option>Inside, depending on weather</option></select></label><label class="full-width">Notes<input name="notes" placeholder="Allergies or requests"></label><button type="submit">Request a table <span>→</span></button><small>This opens an email draft. Send it to request your table; your reservation is confirmed only after our reply.</small><p id="form-status" class="status" role="status"></p></form>
-    </section>
+
 
     <section id="faq" class="faq">
       <p class="kicker dark">Questions, answered</p>
@@ -238,7 +241,7 @@
       </div>
     </section>
   </main>
-  <a class="floating-reserve" href="#reserve">Reserve a table <span>→</span></a>
+  <a class="floating-reserve" href="#reserve">Request a table <span>→</span></a>
   <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
     <span class="theme-toggle-icon" aria-hidden="true">☾</span>
   </button>
@@ -250,8 +253,8 @@
       heroKicker: 'Vila Adora · Bled',
       heroTitle: 'Zajtrk na Bledu<br><em>z razgledom.</em>',
       heroLead: 'Bogat samopostrežni zajtrk neposredno ob Blejskem jezeru, s čudovitim pogledom na jezero in Blejski otok. Vsako jutro odprto za hotelske goste in zunanje obiskovalce.',
-      reserve: 'Rezervirajte mizo <span>→</span>',
-      included: 'Kaj vključuje zajtrk',
+      reserve: 'Povprašajte za mizo <span>→</span>',
+      included: 'Pokličite nas',
       meta: ['◷ &nbsp;Vsak dan · 7:30–10:30', '€ &nbsp;35 € na osebo', '⌖ &nbsp;Neposredno ob Blejskem jezeru'],
       introKicker: 'Dobro jutro, preprosto in lepo',
       introTitle: 'Zajtrk na Bledu.<br><em>Ustvarjen z občutkom.</em>',
@@ -267,13 +270,13 @@
       menuCopies: ['Sveži rogljički, kruh, maslo, marmelada in domače sladke dobrote.', 'Jajca, omlete, zelenjava, slanina in klobase.', 'Sezonsko sadje, jogurt, kosmiči, oreščki in semena.', 'Svež sok, smoothiji, kava in čaj za prijeten začetek dneva.'],
       reserveKicker: 'Rezervirajte svojo mizo',
       reserveTitle: 'Naj bo zajtrk<br><em>del vašega dneva na Bledu.</em>',
-      reserveCopy: 'Privoščite si bogat samopostrežni zajtrk za 35 € na osebo. Sporočite nam, kje bi želeli sedeti, mi pa bomo po najboljših močeh pripravili vaš želeni kotiček.',
-      contact: ['◷ &nbsp;Vsak dan · 7:30–10:30', '✉ &nbsp;info@adorabreakfast.com'],
+      reserveCopy: 'Bogat samopostrežni zajtrk za 35 € na osebo, tudi za zunanje obiskovalce. Izberite datum in število gostov ter pošljite e-pošto ali nas pokličite. Miza je rezervirana, ko potrdimo razpoložljivost.',
+      contact: ['◷ &nbsp;Vsak dan · 7:30–10:30'],
       labels: ['Ime', 'Datum', 'Gostje', 'Želeno mesto', 'Opombe'],
       placeholders: ['Vaše ime', 'Alergije ali posebne želje'],
-      guestOptions: ['1 gost', '2 gosta', '3 gostje', '4 gostje', '5+ gostov'],
+      guestOptions: ['1 gost', '2 gosta', '3 gostje', '4 gostje', '5 gostov', '6 gostov', '7 gostov', '8 gostov'],
       seatingOptions: ['Velika terasa', 'Pogled na otok, pred paviljonom', 'V paviljonu', 'Sundeck nad paviljonom', 'V notranjosti, glede na vreme'],
-      formButton: 'Pošljite povpraševanje <span>→</span>',
+      formButton: 'Pripravite e-pošto <span>→</span>',
       formNote: 'Odpre se osnutek e-pošte. Pošljite ga za povpraševanje; rezervacija je potrjena šele po našem odgovoru.',
       faqKicker: 'Odgovori na vprašanja',
       faqTitle: 'Zajtrk na Bledu,<br><em>preprosto in brez skrbi.</em>',
@@ -283,7 +286,7 @@
       locationTitle: 'Neposredno ob<br><em>jezeru.</em>',
       locationCopy: 'Vila Adora stoji neposredno ob Blejskem jezeru, s pogledom na jezero in Blejski otok. Center Bleda je oddaljen približno 10 minut hoje. Parkiranje je na voljo na zahtevo pred hišo; morda je na voljo tudi parkirišče Sokol.',
       directions: 'Odprite navodila <span>→</span>',
-      floating: 'Rezervirajte mizo <span>→</span>',
+      floating: 'Povprašajte za mizo <span>→</span>',
       returnLink: 'Nazaj na Adoro',
       status: 'Vaš osnutek e-pošte je pripravljen.'
     }
@@ -303,22 +306,13 @@
       set('.views-heading .kicker', t.viewsKicker); set('.views-heading h2', t.viewsTitle, true); set('.views-heading .copy', t.viewsCopy); setAll('.view-card h3', t.viewTitles); setAll('.view-card p', t.viewCopies);
       set('.menu-heading .kicker', t.menuKicker); set('.menu-heading h2', t.menuTitle, true); setAll('.menu-card h3', t.menuTitles); setAll('.menu-card p', t.menuCopies);
       set('.reserve-copy .kicker', t.reserveKicker); set('.reserve-copy h2', t.reserveTitle, true); set('.reserve-copy > p:not(.kicker)', t.reserveCopy); setAll('.contact span', t.contact, true);
-      document.querySelectorAll('.form label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
-      document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button', t.formButton, true); set('.form small', t.formNote);
+      document.querySelectorAll('.form > label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
+      document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button[type="submit"]', t.formButton, true); set('.form small', t.formNote);
       set('.faq > .kicker', t.faqKicker); set('.faq > h2', t.faqTitle, true); setAll('.faq-list summary', t.faqQuestions); setAll('.faq-list details p', t.faqAnswers);
       set('.location-heading .kicker', t.locationKicker); set('.location-heading h2', t.locationTitle, true); set('.location-heading .copy', t.locationCopy); set('.directions', t.directions, true); set('.floating-reserve', t.floating, true); set('footer a[href="https://adorabled.com/"]', t.returnLink); document.querySelector('.map-wrap iframe').title = 'Zemljevid lokacije Vile Adore na Bledu'; document.querySelector('.map-wrap iframe').ariaLabel = 'Zemljevid lokacije Vile Adore na naslovu Cesta svobode 35, Bled';
       document.querySelector('[data-language="sl"]').classList.add('active'); document.querySelector('[data-language="en"]').classList.remove('active');
     }
 
-    document.getElementById('breakfast-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const isSlovenian = document.documentElement.lang === 'sl';
-      const subject = encodeURIComponent((isSlovenian ? 'Rezervacija zajtrka — ' : 'Breakfast reservation — ') + (data.get('date') || ''));
-      const body = encodeURIComponent((isSlovenian ? ['Ime: ', 'Datum: ', 'Gostje: ', 'Želeno mesto: ', 'Opombe: '] : ['Name: ', 'Date: ', 'Guests: ', 'Preferred seating: ', 'Notes: ']).map((label, i) => label + [data.get('name'), data.get('date'), data.get('guests'), data.get('seating'), data.get('notes') || ''][i]).join('\n'));
-      window.location.href = 'mailto:info@adorabreakfast.com?subject=' + subject + '&body=' + body;
-      document.getElementById('form-status').textContent = isSlovenian ? slovenian.status : 'Your email draft is ready.';
-    });
     const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
     function updateThemeToggle() {
@@ -336,6 +330,7 @@
     updateThemeToggle();
     if (new URLSearchParams(window.location.search).get('lang') === 'sl') applySlovenian();
   </script>
+  <script src="conversion.js" defer></script>
 </body>
 </html>
 <!-- Standalone Villa Adora breakfast site. -->
