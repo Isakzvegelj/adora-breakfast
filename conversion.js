@@ -2,6 +2,7 @@
 (() => {
  const form=document.querySelector('#breakfast-form'),isSl=document.documentElement.lang==='sl';
  const date=form.elements.date,guests=form.elements.guests;
+ const sticky=document.querySelector('.floating-reserve');if(sticky&&'IntersectionObserver' in window)new IntersectionObserver(entries=>{sticky.hidden=entries[0].isIntersecting;}).observe(form);
  const now=new Date();const today=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');date.min=today;
  const total=()=>{const n=Number(guests.value);if(guests.value==='group'){document.querySelector('#party-total').textContent=isSl?'Za 9 ali več gostov nas pokličite za dogovor.':'For 9 or more guests, call us to discuss your table.';return;}document.querySelector('#party-total').textContent=isSl?`Skupaj za zajtrk: ${n*35} € · ${guests.options[guests.selectedIndex].text}`:`Breakfast total: €${n*35} · ${guests.options[guests.selectedIndex].text}`;};guests.addEventListener('change',total);total();
  const details=document.querySelector('#request-details'),fallback=document.querySelector('.request-fallback'),status=document.querySelector('#form-status'),copy=document.querySelector('#copy-request');

@@ -3,3 +3,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .views>*,.views-grid>*{min-width:0}.views-grid{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:520px){.views-grid{grid-template-columns:minmax(0,1fr)}}
+
+.floating-reserve[hidden]{display:none}
