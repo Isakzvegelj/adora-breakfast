@@ -1,0 +1,28 @@
+/* Preserve the provider's native map colours and strengthen navigation text. */
+.map-wrap{height:clamp(200px,calc(100vh - 160px),440px);border:1px solid #9aa69c;border-radius:12px;background:#eef0ea;color-scheme:light}
+.map-wrap iframe{filter:none;color-scheme:light;background:#eef0ea}
+.directions{min-height:48px;padding:12px 20px;border:1px solid #9a743e;border-radius:999px;background:#e8d4ad;color:#203b37;font-size:1rem;text-decoration:none}
+.directions:hover,.directions:focus-visible{background:#efdbb7;color:#203b37}
+footer{color:#46564e}footer a:hover,footer a:focus-visible{color:#6a4727;text-decoration:underline;text-underline-offset:4px}
+.theme-toggle{opacity:1;background:#f7f4ee;border-color:#84958a}
+.theme-toggle:focus-visible{box-shadow:0 0 0 3px #77552d,0 8px 24px rgba(31,55,53,.1)}
+.faq-list summary::after{color:#77552d}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #77552d;outline-offset:4px}
+html[data-theme="dark"] .map-wrap{border-color:#819481}
+html[data-theme="dark"] .directions,html[data-theme="dark"] .directions:hover,html[data-theme="dark"] .directions:focus-visible{color:#203b37}
+html[data-theme="dark"] footer{color:#d1dbd3}html[data-theme="dark"] footer a:hover,html[data-theme="dark"] footer a:focus-visible{color:#efcb8d}
+html[data-theme="dark"] .theme-toggle{background:#203b37;border-color:#9caf9f}
+html[data-theme="dark"] .theme-toggle:focus-visible{box-shadow:0 0 0 3px #efcb8d,0 8px 24px rgba(0,0,0,.24)}
+html[data-theme="dark"] .faq-list summary::after{color:#efcb8d}
+html[data-theme="dark"] a:focus-visible,html[data-theme="dark"] button:focus-visible,html[data-theme="dark"] summary:focus-visible{outline-color:#efcb8d}
+@media(max-width:768px){.map-wrap{height:clamp(200px,calc(100vh - 160px),360px)}}
+
+.map-control-hidden{visibility:hidden!important;pointer-events:none!important}
+.music-control.music-on.map-safe-dock{top:var(--map-music-top)!important;bottom:auto!important}
+
+.reserve .contact{color:#3e514c}
+html[data-theme="dark"] .reserve .contact{color:#d1dbd3}
+
+html[data-theme="dark"] .language-switch a:not(.active):hover{background:#30433a;color:#f6f1e7}
+.language-switch a{transition:none}
+.theme-toggle,.hero .button.ghost{transition:transform .2s ease,border-color .2s ease}

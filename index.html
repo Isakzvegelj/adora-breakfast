@@ -135,6 +135,7 @@
   <link rel="stylesheet" href="readability.css">
   <link rel="stylesheet" href="sections.css">
   <link rel="stylesheet" href="gallery.css">
+  <link rel="stylesheet" href="map-contrast.css">
 </head>
 <body>
   <main>
@@ -224,7 +225,7 @@
         <a class="directions" href="https://www.google.com/maps/dir/?api=1&destination=Cesta%20svobode%2035%2C%204260%20Bled%2C%20Slovenia" target="_blank" rel="noopener">Get directions <span>→</span></a>
       </div>
       <div class="map-wrap">
-        <iframe src="https://www.google.com/maps?q=Cesta%20svobode%2035%2C%204260%20Bled%2C%20Slovenia&z=16&output=embed" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Villa Adora Bled location map" aria-label="Map showing Villa Adora at Cesta svobode 35, Bled"></iframe>
+        <iframe src="https://www.google.com/maps?q=Cesta%20svobode%2035%2C%204260%20Bled%2C%20Slovenia&z=16&output=embed&hl=en" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer" title="Villa Adora Bled location map" aria-label="Map showing Villa Adora at Cesta svobode 35, Bled"></iframe>
       </div>
     </section>
   </main>
@@ -294,7 +295,7 @@
       document.querySelectorAll('.form > label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
       document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button[type="submit"]', t.formButton, true); set('.form small', t.formNote);
       set('.faq > .kicker', t.faqKicker); set('.faq > h2', t.faqTitle, true); setAll('.faq-list summary', t.faqQuestions); setAll('.faq-list details p', t.faqAnswers);
-      set('.location-heading .kicker', t.locationKicker); set('.location-heading h2', t.locationTitle, true); set('.location-heading .copy', t.locationCopy); set('.directions', t.directions, true); set('.floating-reserve', t.floating, true); set('footer a[href="https://www.adorabled.com/"]', t.returnLink); document.querySelector('.map-wrap iframe').title = 'Zemljevid lokacije Vile Adore na Bledu'; document.querySelector('.map-wrap iframe').ariaLabel = 'Zemljevid lokacije Vile Adore na naslovu Cesta svobode 35, Bled';
+      set('.location-heading .kicker', t.locationKicker); set('.location-heading h2', t.locationTitle, true); set('.location-heading .copy', t.locationCopy); set('.directions', t.directions, true); set('.floating-reserve', t.floating, true); set('footer a[href="https://www.adorabled.com/"]', t.returnLink); document.querySelector('.map-wrap iframe').title = 'Zemljevid lokacije Vile Adore na Bledu'; document.querySelector('.map-wrap iframe').ariaLabel = 'Zemljevid lokacije Vile Adore na naslovu Cesta svobode 35, Bled'; const mapFrame = document.querySelector('.map-wrap iframe'); const mapUrl = new URL(mapFrame.src); mapUrl.searchParams.set('hl', 'sl'); mapFrame.src = mapUrl.href;
       document.querySelector('[data-language="sl"]').classList.add('active'); document.querySelector('[data-language="en"]').classList.remove('active');
     }
 
@@ -317,6 +318,7 @@
   </script>
   <script src="conversion.js" defer></script>
   <script src="lounge.js" defer></script>
+  <script src="map-access.js" defer></script>
 </body>
 </html>
 <!-- Standalone Villa Adora breakfast site. -->
