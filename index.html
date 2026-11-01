@@ -134,6 +134,7 @@
   <link rel="stylesheet" href="conversion.css">
   <link rel="stylesheet" href="readability.css">
   <link rel="stylesheet" href="sections.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
   <main>
@@ -141,8 +142,8 @@
       <img alt="Breakfast on the Villa Adora terrace overlooking Lake Bled and Bled Island" decoding="async" fetchpriority="high" width="1005" height="1565" sizes="(max-width: 768px) 100vw, 50vw" src="images/editorial/lake-breakfast-v1.webp" srcset="images/editorial/lake-breakfast-v1-480.webp 480w, images/editorial/lake-breakfast-v1-800.webp 800w, images/editorial/lake-breakfast-v1.webp 1005w">
       <div class="hero-shade"></div>
       <div class="hero-content">
-        <nav class="language-switch" aria-label="Language"><a href="./?lang=en" data-language="en" class="active">EN</a><a href="./?lang=sl" data-language="sl">SL</a></nav>
-        <p class="kicker">Villa Adora · Bled</p>
+        <nav class="language-switch" aria-label="Language"><a href="./?lang=en" data-language="en" class="active">EN</a><a href="./?lang=sl" data-language="sl">SL</a></nav><div class="music-control"><button type="button" id="music-toggle" aria-pressed="false" aria-label="Play lounge music" hidden><span aria-hidden="true">♪</span> <span class="music-label">Play music</span></button><span id="music-status" class="music-status" role="status"></span></div>
+        <p class="kicker"><a href="https://www.adorabled.com/" target="_blank" rel="noopener">Villa Adora · Bled ↗</a></p>
         <h1>Breakfast by<br><em>Lake Bled.</em></h1>
         <p class="lead">Enjoy our breakfast buffet with views of Bled Island. Open to everyone, every morning.</p>
         <div class="actions"><a href="#reserve" class="button gold">Request a table <span>→</span></a><a href="tel:+38651603858" class="button ghost">Call us</a></div>
@@ -162,13 +163,11 @@
     </section>
 
 <div class="breakfast-essentials" aria-label="Plan your breakfast"><p><strong>Hotel guests and outside visitors welcome.</strong><br>Daily 7:30–10:30 · €35 per person<br>Cesta svobode 35, Bled</p><p><a href="#included">Explore the buffet</a> · <a href="#location">Find us by the lake</a> · <a href="#reserve">Request a table</a></p></div>
-    <section class="property-gallery" aria-label="Villa Adora property highlights">
-      <div class="property-gallery-heading"><p class="kicker dark">Villa Adora</p><h2>Your morning<br><em>by the lake.</em></h2><p class="copy">Come for the table, stay for the setting: a historic villa beside Lake Bled with the island, castle and mountains in view.</p></div>
-      <div class="property-gallery-grid">
-        <figure class="property-photo property-photo-large"><img alt="Lake Bled, Bled Island and the mountains near Villa Adora" decoding="async" height="1100" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/adora/lake-island-mountains.jpg" srcset="images/adora/responsive/lake-island-mountains-480.webp 480w, images/adora/responsive/lake-island-mountains-800.webp 800w, images/adora/responsive/lake-island-mountains-1200.webp 1200w" width="2000"/><figcaption>Lake · island · mountains</figcaption></figure>
-        <figure class="property-photo"><img alt="Bled Castle and the mountains across Lake Bled" decoding="async" height="700" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/adora/castle-mountains.jpg" srcset="images/adora/responsive/castle-mountains-480.webp 480w, images/adora/responsive/castle-mountains-800.webp 800w, images/adora/responsive/castle-mountains-1200.webp 1200w" width="1600"/><figcaption>Castle view</figcaption></figure>
-        <figure class="property-photo"><img alt="Villa Adora historic villa beside Lake Bled" decoding="async" height="900" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/adora/villa-exterior.jpg" srcset="images/adora/responsive/villa-exterior-480.webp 480w, images/adora/responsive/villa-exterior-800.webp 800w, images/adora/responsive/villa-exterior-1200.webp 1200w" width="1600"/><figcaption>The villa</figcaption></figure>
-        <figure class="property-photo property-photo-wide"><img alt="Breakfast table on the terrace at Villa Adora" decoding="async" height="800" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/adora/breakfast-terrace.webp" srcset="images/adora/responsive/breakfast-terrace-480.webp 480w, images/adora/responsive/breakfast-terrace-800.webp 800w, images/adora/responsive/breakfast-terrace-1200.webp 1200w" width="1200"/><figcaption>Breakfast on the terrace</figcaption></figure>
+    <section id="villa" class="property-gallery villa-story" aria-labelledby="villa-heading">
+      <div class="property-gallery-heading"><p class="kicker dark">Villa Adora</p><h2 id="villa-heading">Breakfast at<br><em>Villa Adora.</em></h2><p class="copy">Start your morning at this historic villa beside Lake Bled. Discover the hotel and its rooms on the Villa Adora website.</p><a class="villa-link" href="https://www.adorabled.com/" target="_blank" rel="noopener">Visit Villa Adora ↗</a></div>
+      <div class="villa-photos">
+        <figure class="villa-photo"><img alt="Villa Adora beside Lake Bled with Bled Castle and the mountains" width="1440" height="655" loading="lazy" decoding="async" sizes="(max-width: 768px) calc(100vw - 48px), 55vw" src="images/villa/adora-lakeside-1440.webp" srcset="images/villa/adora-lakeside-480.webp 480w, images/villa/adora-lakeside-960.webp 960w, images/villa/adora-lakeside-1440.webp 1440w"><figcaption>The villa, lake and castle.</figcaption></figure>
+        <figure class="villa-photo"><img alt="Villa Adora exterior, turret and balconies overlooking Bled Island" width="1440" height="1080" loading="lazy" decoding="async" sizes="(max-width: 768px) calc(100vw - 48px), 45vw" src="images/villa/adora-island-1440.webp" srcset="images/villa/adora-island-480.webp 480w, images/villa/adora-island-960.webp 960w, images/villa/adora-island-1440.webp 1440w"><figcaption>The villa and Bled Island.</figcaption></figure>
       </div>
     </section>
 
@@ -180,15 +179,7 @@
       </div>
       <div class="breakfast-gallery-grid">
         <figure class="breakfast-photo breakfast-photo-featured"><img alt="The Villa Adora breakfast buffet with pastries, fruit, yoghurt, cheeses and cold cuts" decoding="async" width="1058" height="1487" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/editorial/buffet-v1.webp" srcset="images/editorial/buffet-v1-480.webp 480w, images/editorial/buffet-v1-800.webp 800w, images/editorial/buffet-v1.webp 1058w"></figure>
-        <figure class="breakfast-photo"><img alt="Fresh fruit and breakfast glasses at Villa Adora" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.32%20(1).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.32%20%281%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.32%20%281%29-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.32%20%281%29-1200.webp 1200w" width="1249"/></figure>
-        <figure class="breakfast-photo"><img alt="Fresh breakfast salad served at Villa Adora" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.32.jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.32-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.32-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.32-1200.webp 1200w" width="1205"/></figure>
-        <figure class="breakfast-photo"><img alt="Breakfast buffet prepared in the dining room at Villa Adora" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(2).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%282%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%282%29-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%282%29-1200.webp 1200w" width="1211"/></figure>
         <figure class="breakfast-photo"><img alt="Fresh juice and breakfast dishes at Villa Adora" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(4).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%284%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%284%29-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%284%29-1200.webp 1200w" width="1200"/></figure>
-        <figure class="breakfast-photo"><img alt="Overnight oats and fresh fruit at Villa Adora" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(5).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%285%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%285%29-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%285%29-1200.webp 1200w" width="1200"/></figure>
-        <figure class="breakfast-photo"><img alt="Breakfast setting inside the historic Villa Adora dining room" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(7).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%287%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%287%29-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%287%29-1200.webp 1200w" width="1200"/></figure>
-        <figure class="breakfast-photo breakfast-photo-wide"><img alt="Breakfast table on the terrace overlooking Lake Bled" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(8).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%288%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%288%29-800.webp 800w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%288%29-1200.webp 1200w" width="1200"/></figure>
-        <figure class="breakfast-photo breakfast-photo-wide"><img alt="Guests enjoying breakfast beside Lake Bled" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20(9).jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%289%29-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.33%20%289%29-800.webp 800w" width="994"/></figure>
-        <figure class="breakfast-photo breakfast-photo-wide"><img alt="Breakfast with a view of Bled Island" decoding="async" height="1600" loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" src="images/WhatsApp%20Image%202026-08-09%20at%2012.46.34.jpeg" srcset="images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.34-480.webp 480w, images/responsive/WhatsApp%20Image%202026-08-09%20at%2012.46.34-800.webp 800w" width="1028"/></figure>
       </div>
     </section>
 
@@ -241,7 +232,7 @@
   <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
     <span class="theme-toggle-icon" aria-hidden="true">☾</span>
   </button>
-  <footer><span>ADORA</span><a href="https://adorabled.com/">Return to Adora</a><a href="tel:+38651603858">+386 51 603 858</a><a href="https://isakzvegelj.com/" target="_blank" rel="noopener" aria-label="Website by IZ">IZ</a></footer>
+  <footer><span>ADORA</span><a href="https://www.adorabled.com/" target="_blank" rel="noopener">Villa Adora hotel ↗</a><a href="tel:+38651603858">+386 51 603 858</a><a href="https://isakzvegelj.com/" target="_blank" rel="noopener" aria-label="Website by IZ">IZ</a></footer>
   <script>
     const slovenian = {
       title: 'Zajtrk z razgledom na Bledu | Vila Adora',
@@ -279,7 +270,7 @@
       locationCopy: 'Vila Adora stoji neposredno ob Blejskem jezeru, s pogledom na jezero in Blejski otok. Center Bleda je oddaljen približno 10 minut hoje. Parkiranje je na voljo na zahtevo pred hišo; morda je na voljo tudi parkirišče Sokol.',
       directions: 'Odprite navodila <span>→</span>',
       floating: 'Povprašajte za mizo <span>→</span>',
-      returnLink: 'Nazaj na Adoro',
+      returnLink: 'Hotel Vila Adora ↗',
       status: 'Vaš osnutek e-pošte je pripravljen.'
     }
 
@@ -292,9 +283,9 @@
       document.querySelector('meta[property="og:description"]').content = t.description;
       const set = (selector, value, html = false) => { const el = document.querySelector(selector); if (el) html ? el.innerHTML = value : el.textContent = value; };
       const setAll = (selector, values, html = false) => document.querySelectorAll(selector).forEach((el, i) => { if (values[i] !== undefined) html ? el.innerHTML = values[i] : el.textContent = values[i]; });
-      set('.hero .kicker', t.heroKicker); set('.hero h1', t.heroTitle, true); set('.hero .lead', t.heroLead); set('.hero .button.gold', t.reserve, true); set('.hero .button.ghost', t.included); setAll('.meta span', t.meta, true);
+      set('.hero .kicker a', t.heroKicker + ' ↗'); set('.hero h1', t.heroTitle, true); set('.hero .lead', t.heroLead); set('.hero .button.gold', t.reserve, true); set('.hero .button.ghost', t.included); setAll('.meta span', t.meta, true);
       set('.breakfast-essentials', '<p><strong>Dobrodošli hotelski gostje in zunanji obiskovalci.</strong><br>Vsak dan 7:30–10:30 · 35 € na osebo<br>Cesta svobode 35, Bled</p><p><a href="#included">Oglejte si samopostrežni zajtrk</a> · <a href="#location">Poiščite nas ob jezeru</a> · <a href="#reserve">Pošljite povpraševanje za mizo</a></p>', true);
-      set('.property-gallery-heading .kicker', 'Vila Adora'); set('.property-gallery-heading h2', 'Vaše jutro<br><em>ob jezeru.</em>', true); set('.property-gallery-heading .copy', 'Zajtrk ob Blejskem jezeru, s pogledom na otok, grad in okoliške gore.'); setAll('.property-photo figcaption', ['Jezero · otok · gore', 'Pogled na grad', 'Vila Adora', 'Zajtrk na terasi']);
+      set('.property-gallery-heading .kicker', 'Vila Adora'); set('.property-gallery-heading h2', 'Zajtrk v<br><em>Vili Adora.</em>', true); set('.property-gallery-heading .copy', 'Začnite jutro v zgodovinski vili ob Blejskem jezeru. Hotel in njegove sobe si oglejte na spletni strani Vile Adore.'); set('.villa-link', 'Obiščite Vilo Adoro ↗'); setAll('.villa-photo figcaption', ['Vila, jezero in grad.', 'Vila in Blejski otok.']);
       set('.breakfast-gallery-heading .kicker', 'Na zajtrku'); set('.breakfast-gallery-heading h2', 'Zajtrk,<br><em>od blizu.</em>', true); set('.breakfast-gallery-heading .copy', 'Oglejte si samopostrežni zajtrk in kotičke za mirno jutro ob jezeru.');
       set('.intro .kicker', t.introKicker); set('.intro h2', t.introTitle, true); set('.intro .copy', t.introCopy);
       set('.views-heading h2', t.viewsTitle, true); set('.seating-story .copy', t.viewsCopy);
@@ -303,7 +294,7 @@
       document.querySelectorAll('.form > label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
       document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button[type="submit"]', t.formButton, true); set('.form small', t.formNote);
       set('.faq > .kicker', t.faqKicker); set('.faq > h2', t.faqTitle, true); setAll('.faq-list summary', t.faqQuestions); setAll('.faq-list details p', t.faqAnswers);
-      set('.location-heading .kicker', t.locationKicker); set('.location-heading h2', t.locationTitle, true); set('.location-heading .copy', t.locationCopy); set('.directions', t.directions, true); set('.floating-reserve', t.floating, true); set('footer a[href="https://adorabled.com/"]', t.returnLink); document.querySelector('.map-wrap iframe').title = 'Zemljevid lokacije Vile Adore na Bledu'; document.querySelector('.map-wrap iframe').ariaLabel = 'Zemljevid lokacije Vile Adore na naslovu Cesta svobode 35, Bled';
+      set('.location-heading .kicker', t.locationKicker); set('.location-heading h2', t.locationTitle, true); set('.location-heading .copy', t.locationCopy); set('.directions', t.directions, true); set('.floating-reserve', t.floating, true); set('footer a[href="https://www.adorabled.com/"]', t.returnLink); document.querySelector('.map-wrap iframe').title = 'Zemljevid lokacije Vile Adore na Bledu'; document.querySelector('.map-wrap iframe').ariaLabel = 'Zemljevid lokacije Vile Adore na naslovu Cesta svobode 35, Bled';
       document.querySelector('[data-language="sl"]').classList.add('active'); document.querySelector('[data-language="en"]').classList.remove('active');
     }
 
@@ -325,6 +316,7 @@
     if (new URLSearchParams(window.location.search).get('lang') === 'sl') applySlovenian();
   </script>
   <script src="conversion.js" defer></script>
+  <script src="lounge.js" defer></script>
 </body>
 </html>
 <!-- Standalone Villa Adora breakfast site. -->
