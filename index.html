@@ -133,6 +133,7 @@
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "bf2d915e4e3f4fcb801c7984b6488c69"}'></script>
   <link rel="stylesheet" href="conversion.css">
   <link rel="stylesheet" href="readability.css">
+  <link rel="stylesheet" href="sections.css">
 </head>
 <body>
   <main>
@@ -191,27 +192,20 @@
       </div>
     </section>
 
-    <section class="views">
-      <div class="views-heading"><p class="kicker dark">Breakfast with view</p><h2>Choose your<br><em>favourite seat.</em></h2><p class="copy">We prepare every table with care. Sit inside or outside, depending on your wishes and the weather.</p></div>
-      <div class="views-grid">
-        <article class="view-card"><span>01</span><h3>The large terrace</h3><p>Relax outside with open views across Lake Bled and the surrounding landscape.</p></article>
-        <article class="view-card"><span>02</span><h3>Island view</h3><p>Reserve a table in front of the pavilion for a beautiful view of Bled Island.</p></article>
-        <article class="view-card"><span>03</span><h3>The pavilion</h3><p>A sheltered, intimate setting for breakfast in any weather.</p></article>
-        <article class="view-card"><span>04</span><h3>The sundeck</h3><p>Enjoy breakfast above the pavilion with a different perspective on the lake.</p></article>
-      </div>
+    <section id="seating" class="views seating-note" aria-labelledby="seating-heading">
+      <div class="views-heading"><h2 id="seating-heading">Inside or out.</h2></div>
+      <div class="seating-story"><p class="copy">Choose the large terrace, an island-facing table in front of the pavilion, the pavilion itself, or the sundeck above. Tell us your preference when you enquire; outdoor seating depends on the weather.</p></div>
     </section>
 
-    <section id="included" class="menu-section">
-      <div class="menu-heading"><p class="kicker dark">On the table</p><h2>Something for<br><em>every appetite.</em></h2></div>
-      <div class="menu-grid">
-        <article class="menu-card"><span>01</span><h3>Bakery</h3><p>Fresh croissants, bread, butter, jam and homemade sweet treats.</p></article>
-        <article class="menu-card"><span>02</span><h3>Warm breakfast</h3><p>Eggs, omelettes, vegetables, bacon and sausages.</p></article>
-        <article class="menu-card"><span>03</span><h3>Fresh & light</h3><p>Seasonal fruit, yoghurt, cereals, nuts and seeds.</p></article>
-        <article class="menu-card"><span>04</span><h3>Drinks</h3><p>Fresh juice, smoothies, coffee and tea to start the morning well.</p></article>
-      </div>
+    <section id="included" class="menu-section buffet-menu" aria-labelledby="buffet-heading">
+      <div class="menu-heading"><h2 id="buffet-heading">At the buffet.</h2></div>
+      <dl class="breakfast-menu">
+        <div><dt>Bakery</dt><dd>Fresh croissants, bread, butter, jam and homemade sweet treats.</dd></div>
+        <div><dt>Warm dishes</dt><dd>Eggs, omelettes, vegetables, bacon and sausages.</dd></div>
+        <div><dt>Fruit &amp; yoghurt</dt><dd>Seasonal fruit, yoghurt, cereals, nuts and seeds.</dd></div>
+        <div><dt>Drinks</dt><dd>Fresh juice, smoothies, coffee and tea.</dd></div>
+      </dl>
     </section>
-
-
 
     <section id="faq" class="faq">
       <p class="kicker dark">Questions, answered</p>
@@ -261,15 +255,11 @@
       introKicker: 'Dobro jutro, preprosto in lepo',
       introTitle: 'Zajtrk na Bledu.<br><em>Ustvarjen z občutkom.</em>',
       introCopy: 'Izberite, kar vam je všeč, vzemite še enkrat in si vzemite čas. Naš bogat samopostrežni zajtrk združuje sveže sestavine, tople priljubljene jedi in miren občutek jutra neposredno ob Blejskem jezeru, s pogledom na jezero in otok.',
-      viewsKicker: 'Zajtrk z razgledom',
-      viewsTitle: 'Izberite svoj<br><em>najljubši kotiček.</em>',
-      viewsCopy: 'Vsako mizo pripravimo skrbno. Sedite lahko v notranjosti ali zunaj, glede na vaše želje in vreme.',
-      viewTitles: ['Velika terasa', 'Pogled na otok', 'Paviljon', 'Sundeck'],
-      viewCopies: ['Sprostite se na prostem z odprtim pogledom na Blejsko jezero in okoliško pokrajino.', 'Rezervirajte mizo pred paviljonom s čudovitim pogledom na Blejski otok.', 'Zaščiten in prijeten kotiček za zajtrk v vsakem vremenu.', 'Uživajte v zajtrku nad paviljonom z drugačne perspektive na jezero.'],
-      menuKicker: 'Na mizi',
-      menuTitle: 'Nekaj za<br><em>vsak okus.</em>',
-      menuTitles: ['Pekovski izdelki', 'Topli zajtrk', 'Sveže in lahko', 'Pijače'],
-      menuCopies: ['Sveži rogljički, kruh, maslo, marmelada in domače sladke dobrote.', 'Jajca, omlete, zelenjava, slanina in klobase.', 'Sezonsko sadje, jogurt, kosmiči, oreščki in semena.', 'Svež sok, smoothiji, kava in čaj za prijeten začetek dneva.'],
+      viewsTitle: 'V notranjosti ali na prostem.',
+      viewsCopy: 'Izberite veliko teraso, mizo pred paviljonom s pogledom na otok, paviljon ali sundeck nad njim. Ob povpraševanju nam sporočite svoje želje; sedenje na prostem je odvisno od vremena.',
+      menuTitle: 'Na samopostrežni mizi.',
+      menuTitles: ['Pekovski izdelki', 'Tople jedi', 'Sadje in jogurt', 'Pijače'],
+      menuCopies: ['Sveži rogljički, kruh, maslo, marmelada in domače sladke dobrote.', 'Jajca, omlete, zelenjava, slanina in klobase.', 'Sezonsko sadje, jogurt, kosmiči, oreščki in semena.', 'Svež sok, smoothiji, kava in čaj.'],
       reserveKicker: 'Rezervirajte svojo mizo',
       reserveTitle: 'Povprašajte za<br><em>mizo za zajtrk.</em>',
       reserveCopy: '35 € na osebo. Izberite datum in število gostov ter pošljite povpraševanje po e-pošti. Odgovorili bomo s potrditvijo razpoložljivosti. Lahko nas tudi pokličete.',
@@ -307,8 +297,8 @@
       set('.property-gallery-heading .kicker', 'Vila Adora'); set('.property-gallery-heading h2', 'Vaše jutro<br><em>ob jezeru.</em>', true); set('.property-gallery-heading .copy', 'Zajtrk ob Blejskem jezeru, s pogledom na otok, grad in okoliške gore.'); setAll('.property-photo figcaption', ['Jezero · otok · gore', 'Pogled na grad', 'Vila Adora', 'Zajtrk na terasi']);
       set('.breakfast-gallery-heading .kicker', 'Na zajtrku'); set('.breakfast-gallery-heading h2', 'Zajtrk,<br><em>od blizu.</em>', true); set('.breakfast-gallery-heading .copy', 'Oglejte si samopostrežni zajtrk in kotičke za mirno jutro ob jezeru.');
       set('.intro .kicker', t.introKicker); set('.intro h2', t.introTitle, true); set('.intro .copy', t.introCopy);
-      set('.views-heading .kicker', t.viewsKicker); set('.views-heading h2', t.viewsTitle, true); set('.views-heading .copy', t.viewsCopy); setAll('.view-card h3', t.viewTitles); setAll('.view-card p', t.viewCopies);
-      set('.menu-heading .kicker', t.menuKicker); set('.menu-heading h2', t.menuTitle, true); setAll('.menu-card h3', t.menuTitles); setAll('.menu-card p', t.menuCopies);
+      set('.views-heading h2', t.viewsTitle, true); set('.seating-story .copy', t.viewsCopy);
+      set('.menu-heading h2', t.menuTitle, true); setAll('.breakfast-menu dt', t.menuTitles); setAll('.breakfast-menu dd', t.menuCopies);
       set('.reserve-copy .kicker', t.reserveKicker); set('.reserve-copy h2', t.reserveTitle, true); set('.reserve-copy > p:not(.kicker)', t.reserveCopy); setAll('.contact span', t.contact, true);
       document.querySelectorAll('.form > label').forEach((label, i) => { label.childNodes[0].nodeValue = t.labels[i]; });
       document.querySelector('.form input[name="name"]').placeholder = t.placeholders[0]; document.querySelector('.form input[name="notes"]').placeholder = t.placeholders[1]; setAll('.form select[name="guests"] option', t.guestOptions); setAll('.form select[name="seating"] option', t.seatingOptions); set('.form button[type="submit"]', t.formButton, true); set('.form small', t.formNote);
