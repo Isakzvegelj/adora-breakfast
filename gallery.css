@@ -16,3 +16,14 @@ html[data-theme="dark"] #music-toggle{color:#e3ebe2;border-color:#9caf9f}html[da
 
 /* Keep the requested stop control reachable while audio is active. */
 .music-control.music-on{position:fixed;top:auto;left:16px;bottom:76px;z-index:30;max-width:calc(100vw - 32px)}
+
+/* Quiet music control: same tap area and accessible name, less visual weight. */
+#music-toggle{width:44px;height:44px;min-width:44px;min-height:44px;padding:0;justify-content:center;gap:0;border-color:#b8c0b7;background:#f7f4ee;color:#46564e;font-weight:400;box-shadow:none}
+#music-toggle .music-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+#music-toggle>span[aria-hidden]{font-size:0;line-height:1}
+#music-toggle>span[aria-hidden]::before{content:'♪';font-size:20px}
+#music-toggle[aria-pressed="true"]{background:#f7f4ee;color:#46564e;border-color:#b8c0b7}
+#music-toggle[aria-pressed="true"]>span[aria-hidden]::before{content:'Ⅱ';font-size:18px}
+#music-toggle:hover,#music-toggle[aria-pressed="true"]:hover{background:#e8e2d6;color:#203b37;border-color:#84958a}
+html[data-theme="dark"] #music-toggle,html[data-theme="dark"] #music-toggle[aria-pressed="true"]{background:#203b37;color:#d1dbd3;border-color:#607c6f}
+html[data-theme="dark"] #music-toggle:hover,html[data-theme="dark"] #music-toggle[aria-pressed="true"]:hover{background:#30433a;color:#f6f1e7;border-color:#9caf9f}
